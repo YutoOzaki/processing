@@ -2,14 +2,22 @@ import java.util.List;
 import java.util.Map;
 
 void setup() {
+  size(60,40);
   selectFolder("Select a folder to process:", "folderSelected");
-  exit();
+  
+  /*
+  java.util.Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
+  println(threadSet.size() + " threads are running");
+  for(Thread thread: threadSet) {
+    println(" " + thread.getId() + ", " + thread.getName());
+  }
+  */
 }
 
 void draw() {
 }
 
-void folderSelected(File selection) {
+void folderSelected(File selection) {  
   if (selection == null) {
     println("Window was closed or the user hit cancel.");
   } else {
@@ -19,6 +27,7 @@ void folderSelected(File selection) {
     FileRetriever FR = new FileRetriever();
     FR.folderSearch(url);
     FR.printPath();
+    println("done!");
   }
 }
 
